@@ -1,0 +1,15 @@
+pub mod account;
+pub mod activity;
+pub mod afk;
+pub mod admin;
+pub mod adventure;
+pub mod bot;
+pub mod character;
+pub mod guild;
+pub mod inventory;
+pub mod mail;
+pub mod quest;
+pub mod skill;
+pub mod systems;
+pub mod trade;
+pub mod world;

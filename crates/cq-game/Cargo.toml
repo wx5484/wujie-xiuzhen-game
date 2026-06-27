@@ -1,0 +1,15 @@
+[package]
+name = "cq-game"
+version = "0.2.13"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+cq-domain.workspace = true
+cq-protocol.workspace = true
+rand.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+time.workspace = true
+uuid.workspace = true

@@ -1,0 +1,15 @@
+[package]
+name = "cq-admin"
+version = "0.2.13"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+cq-db.workspace = true
+cq-domain.workspace = true
+cq-protocol.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sqlx.workspace = true
+thiserror.workspace = true
+time.workspace = true

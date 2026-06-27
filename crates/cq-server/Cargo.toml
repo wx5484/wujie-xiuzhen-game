@@ -1,0 +1,28 @@
+[package]
+name = "cq-server"
+version = "0.2.13"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+argon2.workspace = true
+axum.workspace = true
+cq-admin.workspace = true
+cq-db.workspace = true
+cq-domain.workspace = true
+cq-game.workspace = true
+cq-protocol.workspace = true
+dotenvy.workspace = true
+futures-util.workspace = true
+rand.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sqlx.workspace = true
+thiserror.workspace = true
+time.workspace = true
+tokio.workspace = true
+tower-http.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+uuid.workspace = true
