@@ -306,8 +306,9 @@ docker compose -f docker-compose.prod.yml up -d server
 cp .env.example .env
 docker compose up -d --build
 ```
-
 这种模式不带 HTTPS，不建议正式开放给玩家。
+
+![请作者喝杯咖啡]([图片网址](https://github.com/wx5484/wujie-xiuzhen-game/blob/main/Buy%20me%20a%20coffee.jpg?raw=true) "请作者喝杯咖啡")
 
 ## License
 
