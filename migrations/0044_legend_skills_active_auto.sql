@@ -1,0 +1,62 @@
+insert into skills (id, name, class, min_level, mp_cost, cooldown_ms, config) values
+  ('basic_sword', '基本剑术', 'warrior', 7, 0, 0, '{"kind":"passive","type":"战士被动","desc":"被动提升攻击命中和基础攻击，是战士入门剑术。","source":"比奇野外、矿洞、低层无尽塔","book_id":"book_basic_sword","requires_book":true,"atk_bonus":2,"luck_bonus":1}'),
+  ('warrior_body', '攻杀剑术', 'warrior', 19, 4, 1200, '{"kind":"physical","type":"战士主动","desc":"自动触发的近战剑术，扫荡和 PK 中消耗魔法造成物理伤害。","source":"矿洞尸王、沃玛路线、低层首领","book_id":"book_warrior_body","requires_book":true,"power":1.35,"auto_priority":30}'),
+  ('shadow_step', '刺杀剑术', 'warrior', 25, 7, 1400, '{"kind":"physical","type":"战士主动","desc":"自动触发的破防剑术，适合对付防御较高的目标。","source":"沃玛森林、沃玛寺庙、尸王殿","book_id":"book_shadow_step","requires_book":true,"power":1.55,"auto_priority":40}'),
+  ('halfmoon_blade', '半月弯刀', 'warrior', 28, 10, 1600, '{"kind":"physical","type":"战士主动","desc":"自动触发的范围刀法，在当前战斗模型中折算为更高物理倍率。","source":"沃玛寺庙、石墓阵、祖玛外围","book_id":"book_halfmoon_blade","requires_book":true,"power":1.75,"auto_priority":50}'),
+  ('night_blade', '野蛮冲撞', 'warrior', 30, 12, 1800, '{"kind":"physical","type":"战士主动","desc":"自动触发的冲撞技，造成物理伤害并提高压制节奏。","source":"石墓、蜈蚣洞、祖玛寺庙","book_id":"book_night_blade","requires_book":true,"power":1.85,"auto_priority":55}'),
+  ('flame_blade', '烈火剑法', 'warrior', 35, 20, 2200, '{"kind":"physical","type":"战士主动","desc":"自动触发的高爆发剑法，扫荡和 PK 中优先消耗魔法释放。","source":"祖玛教主、苍月高阶怪物、世界首领","book_id":"book_flame_blade","requires_book":true,"power":2.35,"auto_priority":80}'),
+
+  ('fireball', '火球术', 'mage', 7, 4, 1100, '{"kind":"magical","type":"法师主动","desc":"自动释放的基础火系法术，消耗魔法造成魔法伤害。","source":"比奇野外、矿洞、低层无尽塔","book_id":"book_fireball","requires_book":true,"power":1.45,"auto_priority":30}'),
+  ('ghost_body', '抗拒火环', 'mage', 12, 0, 0, '{"kind":"passive","type":"法师被动","desc":"提升魔法防御和生命，当前战斗模型中作为防护被动生效。","source":"矿洞尸王、沃玛路线、低层首领","book_id":"book_ghost_body","requires_book":true,"mdef_bonus":2,"hp_bonus":16}'),
+  ('field_medicine', '大火球', 'mage', 17, 7, 1250, '{"kind":"magical","type":"法师主动","desc":"自动释放的进阶火球术，消耗魔法造成更高魔法伤害。","source":"沃玛森林、沃玛寺庙、尸王殿","book_id":"book_field_medicine","requires_book":true,"power":1.65,"auto_priority":40}'),
+  ('lightning_master', '雷电术', 'mage', 17, 12, 1450, '{"kind":"magical","type":"法师主动","desc":"自动释放的单体雷法，扫荡和 PK 中优先于火球术。","source":"沃玛寺庙、石墓阵、祖玛外围","book_id":"book_lightning_master","requires_book":true,"power":1.9,"auto_priority":55}'),
+  ('treasure_sense', '火墙', 'mage', 24, 15, 1800, '{"kind":"magical","type":"法师主动","desc":"自动释放的火系高阶法术，在当前战斗模型中折算为持续压制伤害。","source":"石墓、蜈蚣洞、祖玛寺庙","book_id":"book_treasure_sense","requires_book":true,"power":2.05,"auto_priority":60}'),
+  ('magic_shield', '魔法盾', 'mage', 31, 0, 0, '{"kind":"passive","type":"法师被动","desc":"提升魔法上限、生命和魔防，当前战斗模型中作为常驻护盾属性。","source":"祖玛寺庙、苍月岛、世界首领","book_id":"book_magic_shield","requires_book":true,"mp_bonus":28,"hp_bonus":20,"mdef_bonus":4}'),
+  ('ice_roar', '冰咆哮', 'mage', 35, 22, 2300, '{"kind":"magical","type":"法师主动","desc":"自动释放的高阶冰系法术，消耗较高魔法造成强力魔法伤害。","source":"祖玛教主、苍月高阶怪物、世界首领","book_id":"book_ice_roar","requires_book":true,"power":2.45,"auto_priority":85}'),
+
+  ('healing_charm', '治愈术', 'taoist', 7, 5, 1500, '{"kind":"heal","type":"道士主动","desc":"生命较低时自动施展，消耗魔法恢复生命。","source":"比奇野外、矿洞、低层无尽塔","book_id":"book_healing_charm","requires_book":true,"heal_power":42,"auto_priority":70}'),
+  ('focus_breath', '精神力战法', 'taoist', 9, 0, 0, '{"kind":"passive","type":"道士被动","desc":"被动提升道术发挥和命中，是道士基础战法。","source":"比奇野外、矿洞、低层无尽塔","book_id":"book_focus_breath","requires_book":true,"mag_bonus":2,"luck_bonus":1}'),
+  ('spirit_talisman', '灵魂火符', 'taoist', 18, 7, 1300, '{"kind":"magical","type":"道士主动","desc":"自动释放的符法攻击，消耗魔法造成魔法伤害。","source":"矿洞尸王、沃玛路线、低层首领","book_id":"book_spirit_talisman","requires_book":true,"power":1.65,"auto_priority":45}'),
+  ('poison_lore', '施毒术', 'taoist', 14, 6, 1600, '{"kind":"magical","type":"道士主动","desc":"自动施展的毒术，当前战斗模型中折算为魔法伤害。","source":"沃玛森林、沃玛寺庙、尸王殿","book_id":"book_poison_lore","requires_book":true,"power":1.5,"auto_priority":42}'),
+  ('summon_guard', '召唤骷髅', 'taoist', 19, 0, 0, '{"kind":"passive","type":"道士被动","desc":"召唤物能力在当前战斗模型中折算为生命、物防和魔防成长。","source":"沃玛寺庙、石墓阵、祖玛外围","book_id":"book_summon_guard","requires_book":true,"hp_bonus":34,"def_bonus":2,"mdef_bonus":2}'),
+  ('iron_will', '神圣战甲术', 'taoist', 25, 0, 0, '{"kind":"passive","type":"道士被动","desc":"提升防御和魔防，作为团队防护术的常驻属性收益。","source":"石墓、蜈蚣洞、祖玛寺庙","book_id":"book_iron_will","requires_book":true,"def_bonus":3,"mdef_bonus":3,"hp_bonus":18}'),
+  ('group_heal', '群体治愈术', 'taoist', 33, 18, 2400, '{"kind":"heal","type":"道士主动","desc":"生命较低时自动施展，消耗较高魔法恢复更多生命。","source":"祖玛寺庙、苍月岛、世界首领","book_id":"book_group_heal","requires_book":true,"heal_power":88,"auto_priority":90}'),
+  ('blood_mark', '召唤神兽', 'taoist', 35, 0, 0, '{"kind":"passive","type":"道士被动","desc":"神兽能力在当前战斗模型中折算为生命、魔法攻击和防御成长。","source":"祖玛教主、苍月高阶怪物、世界首领","book_id":"book_blood_mark","requires_book":true,"hp_bonus":58,"mag_bonus":5,"def_bonus":2,"mdef_bonus":2}')
+on conflict (id) do update set
+  name = excluded.name,
+  class = excluded.class,
+  min_level = excluded.min_level,
+  mp_cost = excluded.mp_cost,
+  cooldown_ms = excluded.cooldown_ms,
+  config = excluded.config;
+
+insert into item_templates (id, name, kind, slot, rarity, price, stackable, stats) values
+  ('book_basic_sword', '基本剑术技能书', 'book', null, 'rare', 700, false, '{"skill":"basic_sword"}'),
+  ('book_warrior_body', '攻杀剑术技能书', 'book', null, 'rare', 1200, false, '{"skill":"warrior_body"}'),
+  ('book_shadow_step', '刺杀剑术技能书', 'book', null, 'rare', 1400, false, '{"skill":"shadow_step"}'),
+  ('book_halfmoon_blade', '半月弯刀技能书', 'book', null, 'epic', 2400, false, '{"skill":"halfmoon_blade"}'),
+  ('book_night_blade', '野蛮冲撞技能书', 'book', null, 'epic', 2600, false, '{"skill":"night_blade"}'),
+  ('book_flame_blade', '烈火剑法技能书', 'book', null, 'legendary', 5200, false, '{"skill":"flame_blade"}'),
+  ('book_fireball', '火球术技能书', 'book', null, 'rare', 700, false, '{"skill":"fireball"}'),
+  ('book_ghost_body', '抗拒火环技能书', 'book', null, 'rare', 1200, false, '{"skill":"ghost_body"}'),
+  ('book_field_medicine', '大火球技能书', 'book', null, 'rare', 1300, false, '{"skill":"field_medicine"}'),
+  ('book_lightning_master', '雷电术技能书', 'book', null, 'epic', 2400, false, '{"skill":"lightning_master"}'),
+  ('book_treasure_sense', '火墙技能书', 'book', null, 'epic', 2600, false, '{"skill":"treasure_sense"}'),
+  ('book_magic_shield', '魔法盾技能书', 'book', null, 'legendary', 4200, false, '{"skill":"magic_shield"}'),
+  ('book_ice_roar', '冰咆哮技能书', 'book', null, 'legendary', 5200, false, '{"skill":"ice_roar"}'),
+  ('book_healing_charm', '治愈术技能书', 'book', null, 'rare', 700, false, '{"skill":"healing_charm"}'),
+  ('book_focus_breath', '精神力战法技能书', 'book', null, 'rare', 900, false, '{"skill":"focus_breath"}'),
+  ('book_spirit_talisman', '灵魂火符技能书', 'book', null, 'rare', 1200, false, '{"skill":"spirit_talisman"}'),
+  ('book_poison_lore', '施毒术技能书', 'book', null, 'rare', 1400, false, '{"skill":"poison_lore"}'),
+  ('book_summon_guard', '召唤骷髅技能书', 'book', null, 'epic', 2400, false, '{"skill":"summon_guard"}'),
+  ('book_iron_will', '神圣战甲术技能书', 'book', null, 'epic', 3000, false, '{"skill":"iron_will"}'),
+  ('book_group_heal', '群体治愈术技能书', 'book', null, 'legendary', 5200, false, '{"skill":"group_heal"}'),
+  ('book_blood_mark', '召唤神兽技能书', 'book', null, 'legendary', 5600, false, '{"skill":"blood_mark"}')
+on conflict (id) do update set
+  name = excluded.name,
+  kind = excluded.kind,
+  slot = excluded.slot,
+  rarity = excluded.rarity,
+  price = excluded.price,
+  stackable = excluded.stackable,
+  stats = excluded.stats;

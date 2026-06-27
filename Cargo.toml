@@ -1,0 +1,39 @@
+[workspace]
+members = [
+  "crates/cq-admin",
+  "crates/cq-db",
+  "crates/cq-domain",
+  "crates/cq-game",
+  "crates/cq-protocol",
+  "crates/cq-server",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+rust-version = "1.78"
+
+[workspace.dependencies]
+anyhow = "1.0"
+argon2 = "0.5"
+axum = { version = "0.7", features = ["macros", "ws"] }
+dotenvy = "0.15"
+futures-util = "0.3"
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "postgres", "uuid", "time", "json", "macros", "migrate"] }
+thiserror = "1.0"
+time = { version = "0.3", features = ["serde", "macros", "formatting", "parsing"] }
+tokio = { version = "1.40", features = ["macros", "rt-multi-thread", "net", "signal", "sync", "time"] }
+tower-http = { version = "0.6", features = ["compression-full", "cors", "fs", "set-header", "trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+uuid = { version = "1.10", features = ["serde", "v4"] }
+
+cq-admin = { path = "crates/cq-admin" }
+cq-db = { path = "crates/cq-db" }
+cq-domain = { path = "crates/cq-domain" }
+cq-game = { path = "crates/cq-game" }
+cq-protocol = { path = "crates/cq-protocol" }

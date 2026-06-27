@@ -1,0 +1,10 @@
+create index idx_sessions_account_expires on sessions(account_id, expires_at);
+create index idx_sessions_token_live on sessions(token) where revoked_at is null;
+create index idx_characters_account on characters(account_id) where deleted_at is null;
+create index idx_character_state_position on character_state(zone, room);
+create index idx_inventory_character_location on inventory_items(character_id, location);
+create index idx_mob_spawns_room on mob_spawns(zone_id, room_id, alive);
+create index idx_mails_character on mails(to_character_id, created_at desc);
+create index idx_guild_members_character on guild_members(character_id);
+create index idx_consignments_status_expire on consignments(status, expires_at);
+create index idx_admin_audit_created on admin_audit_logs(created_at desc);

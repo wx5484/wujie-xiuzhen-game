@@ -1,0 +1,64 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cq-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cq
+      POSTGRES_USER: cq
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-cq_password}"
+      TZ: "${TZ:-Asia/Shanghai}"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cq -d cq"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  migrate:
+    image: postgres:16-alpine
+    container_name: cq-migrate
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: "${POSTGRES_PASSWORD:-cq_password}"
+    volumes:
+      - ./migrations:/migrations:ro
+      - ./docker/migrate.sh:/migrate.sh:ro
+    entrypoint: ["/bin/sh", "/migrate.sh"]
+
+  server:
+    build: .
+    image: cq-rs:latest
+    container_name: cq-server
+    restart: unless-stopped
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    ports:
+      - "3000:3000"
+    environment:
+      APP_ENV: "${APP_ENV:-production}"
+      PORT: "${PORT:-3000}"
+      PUBLIC_BASE_URL: "${PUBLIC_BASE_URL:-http://localhost:3000}"
+      DATABASE_URL: "postgres://cq:${POSTGRES_PASSWORD:-cq_password}@postgres:5432/cq"
+      ADMIN_PATH: "${ADMIN_PATH:-admin}"
+      ADMIN_BOOTSTRAP_USER: "${ADMIN_BOOTSTRAP_USER:-admin}"
+      ADMIN_BOOTSTRAP_PASSWORD: "${ADMIN_BOOTSTRAP_PASSWORD:-change_me}"
+      SESSION_TTL_MIN: "${SESSION_TTL_MIN:-1440}"
+      RUST_LOG: "${RUST_LOG:-info,cq_server=debug}"
+      BACKUP_DIR: /app/data/backup
+      PUBLIC_DIR: /app/public
+      JSON_BODY_LIMIT_BYTES: "${JSON_BODY_LIMIT_BYTES:-262144}"
+      ADMIN_IP_ALLOWLIST: "${ADMIN_IP_ALLOWLIST:-}"
+      TZ: "${TZ:-Asia/Shanghai}"
+    volumes:
+      - ./data/app:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/readyz >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
